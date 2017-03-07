@@ -1,0 +1,12 @@
+<?php
+/**
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php if (Mage::helper('mageware_checkoutcomment')->isEnabled()): ?>
+<script type="text/javascript">
+//<![CDATA[
+checkout.steps = ['login', 'billing', 'shipping', 'shipping_method', 'comment', 'payment', 'review'];
+//]]>
+</script>
+<?php endif ?>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.txt for license details.
+ */
+-->
+<layout>
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+            <block type="mageware_checkoutcomment/checkout_onepage_comment" name="checkout.onepage.comment" as="comment" template="mageware/checkoutcomment/checkout/onepage/comment.phtml">
+                <block type="mageware_checkoutcomment/checkout_onepage_comment_form" name="checkout.onepage.comment.form" as="comment_form" template="mageware/checkoutcomment/checkout/onepage/comment/form.phtml"/>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="checkout.onepage.js" after="checkout.onepage" template="mageware/checkoutcomment/checkout/onepage/js.phtml" />
+        </reference>
+        <reference name="checkout.progress">
+            <action method="setTemplate"><template>mageware/checkoutcomment/checkout/onepage/progress.phtml</template></action>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_comment>
+        <remove name="right"/>
+        <remove name="left"/>
+        <block type="mageware_checkoutcomment/checkout_onepage_comment_form" name="root" output="toHtml" template="mageware/checkoutcomment/checkout/onepage/comment/form.phtml"/>
+    </checkout_onepage_comment>
+    <checkout_onepage_progress>
+        <reference name="root">
+            <action method="setTemplate"><template>mageware/checkoutcomment/checkout/onepage/progress.phtml</template></action>
+        </reference>
+    </checkout_onepage_progress>
+    <checkout_onepage_progress_comment>
+        <remove name="right"/>
+        <remove name="left"/>
+        <block type="checkout/onepage_progress" name="root" output="toHtml" template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml">
+            <action method="setInfoTemplate"><method></method><template></template></action>
+        </block>
+    </checkout_onepage_progress_comment>
+    <checkout_multishipping_shipping>
+        <reference name="checkout_shipping">
+            <action method="setTemplate"><template>mageware/checkoutcomment/checkout/multishipping/shipping.phtml</template></action>
+        </reference>
+    </checkout_multishipping_shipping>
+    <checkout_multishipping_billing>
+        <reference name="checkout_billing">
+            <action method="setTemplate">
+                <template>mageware/checkoutcomment/checkout/multishipping/billing.phtml</template>
+            </action>
+        </reference>
+    </checkout_multishipping_billing>
+    <checkout_multishipping_comment translate="label">
+        <label>Multishipping Checkout Additional Comment Step</label>
+        <update handle="checkout_multishipping"/>
+        <reference name="content">
+            <block type="mageware_checkoutcomment/checkout_multishipping_comment" name="checkout_comment" template="mageware/checkoutcomment/checkout/multishipping/comment.phtml"/>
+        </reference>
+    </checkout_multishipping_comment>
+    <checkout_multishipping_overview>
+        <reference name="checkout_overview">
+            <action method="setTemplate"><template>mageware/checkoutcomment/checkout/multishipping/overview.phtml</template></action>
+        </reference>
+    </checkout_multishipping_overview>
+    <sales_email_order_items>
+        <reference name="items">
+            <action method="setTemplate"><template>mageware/checkoutcomment/email/order/items.phtml</template></action>
+            <block type="core/template" name="comment" template="mageware/checkoutcomment/email/order/comment.phtml"/>
+        </reference>
+    </sales_email_order_items>
+    <sales_order_print>
+        <reference name="sales.order.print">
+            <action method="setTemplate"><template>mageware/checkoutcomment/sales/order/print.phtml</template></action>
+        </reference>
+    </sales_order_print>
+</layout>

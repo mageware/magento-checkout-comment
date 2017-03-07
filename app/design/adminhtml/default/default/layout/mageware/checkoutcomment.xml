@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.txt for license details.
+ */
+-->
+<layout>
+    <adminhtml_sales_order_view>
+        <reference name="order_info">
+            <action method="setTemplate"><template>mageware/checkoutcomment/sales/order/view/info.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

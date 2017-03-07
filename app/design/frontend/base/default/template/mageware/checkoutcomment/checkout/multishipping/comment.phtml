@@ -1,0 +1,28 @@
+<?php
+/**
+ * See LICENSE.txt for license details.
+ */
+?>
+<div class="multiple-checkout">
+    <div class="page-title">
+        <h1><?php echo $this->__('Additional Comment') ?></h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="comment_method_form">
+        <div class="fieldset">
+            <h2 class="legend"><?php echo $this->__('Additional Comment') ?></h2>
+            <ul class="form-list">
+                <li class="wide">
+                   <label for="comment"><?php echo $this->__('Additional Comment') ?></label>
+                   <div class="input-box">
+                       <textarea id="comment" name="comment"><?php echo $this->htmlEscape($this->getComment()) ?></textarea>
+                   </div>
+               </li>
+            </ul>
+        </div>
+        <div class="buttons-set">
+            <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back to Shipping Information') ?></a></p>
+            <button type="submit" title="<?php echo $this->__('Continue to Billing Information') ?>" class="button"><span><span><?php echo $this->__('Continue to Billing Information') ?></span></span></button>
+        </div>
+    </form>
+</div>

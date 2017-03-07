@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.txt for license details.
+ */
+-->
+<config>
+    <modules>
+        <MageWare_CheckoutComment>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales/>
+                <Mage_Checkout/>
+            </depends>
+        </MageWare_CheckoutComment>
+    </modules>
+</config>

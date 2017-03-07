@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.txt for license details.
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mageware_checkoutcomment translate="title" module="mageware_checkoutcomment">
+                                        <title>Checkout Comment</title>
+                                        <sort_order>0</sort_order>
+                                    </mageware_checkoutcomment>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
