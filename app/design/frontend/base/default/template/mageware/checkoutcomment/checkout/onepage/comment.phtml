@@ -1,0 +1,60 @@
+<?php
+/**
+ * See LICENSE.txt for license details.
+ */
+?>
+<div id="checkout-comment-load">
+<?php echo $this->getChildHtml('comment_form') ?>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var Comment = Class.create();
+Comment.prototype = {
+    initialize: function(form, saveUrl){
+        this.form = form;
+        this.saveUrl = saveUrl;
+        this.onSave = this.nextStep.bindAsEventListener(this);
+        this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
+    },
+
+    save: function(){
+        if (checkout.loadWaiting!=false) return;
+        checkout.setLoadWaiting('comment');
+        var request = new Ajax.Request(
+            this.saveUrl,
+            {
+                method:'post',
+                onComplete: this.onComplete,
+                onSuccess: this.onSave,
+                onFailure: checkout.ajaxFailure.bind(checkout),
+                parameters: Form.serialize(this.form)
+            }
+        );
+    },
+
+    resetLoadWaiting: function(){
+        checkout.setLoadWaiting(false);
+    },
+
+    nextStep: function(transport){
+        if (transport && transport.responseText){
+            try{
+                response = eval('(' + transport.responseText + ')');
+            }
+            catch (e) {
+                response = {};
+            }
+        }
+
+        if (response.error) {
+            alert(response.error);
+            return;
+        }
+
+        checkout.setStepResponse(response);
+    }
+}
+
+var comment = new Comment('co-comment-form', '<?php echo $this->getUrl('checkout/onepage/saveComment') ?>');
+//]]>
+</script>

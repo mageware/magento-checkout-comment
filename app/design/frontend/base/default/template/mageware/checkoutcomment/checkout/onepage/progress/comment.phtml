@@ -1,0 +1,19 @@
+<?php
+/**
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php if ($this->getCheckout()->getStepData('comment', 'complete')): ?>
+<dt class="complete">
+    <?php echo $this->__('Additional Comment') ?><span class="changelink"> <span class="separator">|</span> <a
+        href="#billing"
+        onclick="checkout.changeSection('opc-comment'); return false;"><?php echo $this->__('Change') ?></a></span>
+</dt>
+<dd class="complete">
+    <?php echo nl2br($this->htmlEscape(Mage::getSingleton('checkout/session')->getQuote()->getComment())) ?>
+</dd>
+<?php else: ?>
+<dt>
+    <?php echo $this->__('Additional Comment') ?>
+</dt>
+<?php endif; ?>

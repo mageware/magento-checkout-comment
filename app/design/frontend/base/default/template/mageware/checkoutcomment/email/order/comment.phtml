@@ -1,0 +1,23 @@
+<?php
+/**
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $_order = $this->getOrder() ?>
+<?php if ($this->getOrder()->getComment()): ?>
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <thead>
+    <tr>
+        <th align="left" bgcolor="#EAEAEA" style="font-size:13px; padding:5px 9px 6px 9px; line-height:1em;"><?php echo Mage::helper('mageware_checkoutcomment')->__('Additional Comment') ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td valign="top" style="font-size:12px; padding:7px 9px 9px 9px; border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;">
+        <?php echo nl2br($this->htmlEscape($this->getOrder()->getComment())) ?>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<?php endif ?>
